@@ -87,9 +87,11 @@
 	font-weight: bold;
 }
 .chart-x-label {
+  display: block;
+  text-align: center;
+  top: 30px;
 	position: relative;
-	font-size: 7pt;
+	font-size: 10pt;
 	font-weight: bold;
 	color: #aaaaaa;
-	top: 30px;
 }
