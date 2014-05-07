@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script src="/common/jquery/jquery-2.1.0.min.js"></script>
+		<script src="/common/bootstrap-3.1.1/js/bootstrap.min.js"></script>
+		<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+		<link rel="stylesheet" href="/common/bootstrap-3.1.1/css/bootstrap.css">
+		<link rel="stylesheet" href="/jchart/css/main.css">
+		<script src="jchart.js"></script>
+		<script>
+		$(document).ready(function() {
+			$("#population_chart").jChart({x_label:"Population"});
+			$("#colors_chart").jChart();
+		});
+		</script>
+	</head>
+	<style>
+		.jumbotron {
+			padding-top: 20px;
+			padding-bottom: 10px;
+			color: white;
+			background-color: #4570a5;
+		}
+		.jumbotron>h1 {
+			font-size: 75pt;
+			font-family: "Times New Roman", Times, serif;
+			margin: 0;
+		}
+		.jumbotron>p {
+			margin: 0;
+		}
+	</style>
+	<body>
+<div class="nav navbar-inverse navbar-fixed-top" role="navigation">
+	<ul class="navbar-nav">
+		<li><a href="http://requireonce.com">Requireonce.com</a></li>
+	</ul>
+</div>
+<div class="jumbotron">
+	<h1>JChart</h1>
+	<p>A JQuery Chart Making Plugin</p>
+</div>
+<div class="container">
+<div class="google-ad">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728 x 90 - Leaderboard -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5949490059468896"
+     data-ad-slot="5358947373"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<h1>Description</h1>
+<hr>
+<p>This plugin will allow you to create a bar chart with raw data, either specified in a Javascript array, or
+in plain old HTML with some specific classes and attributes.</p>
+<p><strong>Requires JQuery 1.9.x and Twitter Bootstrap 3.0.x</strong> with tooltip enabled.</p>
+<h1>Live Demo</h1>
+<p>Mouse over bars to see their exact value.</p>
+<hr>
+<div id="population_chart" data-sort="false" data-width="800" class="jChart chart-lg" name="North American Regional Population Loss 2014">
+	<div class="define-chart-row" data-color="#84d6ff" title="Arizona">500000</div>
+	<div class="define-chart-row" data-color="#38BCFF" title="New Mexico">217500</div>
+	<div class="define-chart-row" data-color="#00A9FF" title="Nevada">119000</div>
+	<div class="define-chart-row" data-color="#008DD3" title="Colorado">78000</div>
+	<div class="define-chart-row" data-color="#0074AA" title="Utah">466000</div>
+	<div class="define-chart-row" data-color="#005882" title="California">326000</div>
+	
+	<div class="define-chart-footer">100000</div>
+	<div class="define-chart-footer">200000</div>
+	<div class="define-chart-footer">300000</div>
+	<div class="define-chart-footer">400000</div>
+	<div class="define-chart-footer">500000</div>
+</div>
+
+<h1>Javascript Usage</h1>
+<hr>
+<p>You can create a basic bar chart on an html element by calling .jChart() on a JQuery object or collection.
+<pre class="prettyprint">
+	<code language="language-javascript">
+	$("#population_chart").jChart({
+		name: "North American Regional Population Loss 2014",
+		headers: ["Arizona","Michigan","Ontario","British Columbia","Texas"],
+		values: [250000,478000,88000,429000,423000],
+		footers: [100000,200000,300000,400000,500000],
+		colors: ["#1000ff","#006eff","#00b6ff","#00fff6","#00ff90"]
+	});
+	</code>
+</pre>
+<p>All parameters except for the values are optional. The HTML would look like this:</p>
+<pre class="prettyprint">
+	<code language="language-html">
+	&lt;div id="population_chart"&gt;&lt;/div&gt;
+	</code>
+</pre>
+
+<h1>HTML Usage</h1>
+<hr>
+<p>Many of the options can be overridden in raw HTML, without the need to write any Javascript.
+First, place a block element, like a &lt;div&gt; on the page (#bar_of_pies in the example below). You can give it
+a name to override the title, a semantic bootstrap-like class ("chart-sm" or "chart-lg") to change
+bar and text sizing, a data-width attribute(Integer specifying chart width in pixels), and a
+data-sort="true" to override the sort function (default is false). The content of the element
+should be the value that you want the bar to have.</p><br>
+<p>Additionally, you may include any number of elements within your container with the class 
+"define-chart-row" to create a new bar. Give that element a data-color (rgb, hex, or semantic) to
+override the color. You can specify a title attribute in that element to give the bar a heading.</p><br>
+<p>You may also specify any number of elements with the class "define-chart-footer" to indicate
+where a footer should be placed. The value that the footer and label should be placed at should be
+the content of the element. 
+<p>Here is an example</p>
+<pre class="prettyprint">
+	<code language="language-html">
+	&lt;div id="bar_of_pies" data-sort="true" data-width="300" class="jChart chart-sm" name="My Favorite Pies"&gt;
+		&lt;div class="define-chart-row" data-color="red" title="Pumpkin"&gt;13&lt;/div&gt;
+		&lt;div class="define-chart-row" data-color="gray" title="Pecan"&gt;24&lt;/div&gt;
+		&lt;div class="define-chart-row" data-color="green" title="Cherry"&gt;17&lt;/div&gt;
+		&lt;div class="define-chart-row" data-color="orange" title="Apple"&gt;26&lt;/div&gt;
+		&lt;div class="define-chart-row" data-color="black" title="Rhubarb"&gt;12&lt;/div&gt;
+		&lt;div class="define-chart-row" data-color="blue" title="Chocolate Cream"&gt;8&lt;/div&gt;
+		
+		&lt;div class="define-chart-footer"&gt;10&lt;/div&gt;
+		&lt;div class="define-chart-footer"&gt;20&lt;/div&gt;
+		&lt;div class="define-chart-footer"&gt;30&lt;/div&gt;
+	&lt;/div&gt;
+	</code>
+</pre>
+<p>Then simply call $("#bar_of_pies").jChart(); without any options specified to generate the chart like below:</p>
+
+<div id="colors_chart" data-sort="true" data-x_label="% of Total Love of Pies" data-width="300" class="chart-sm" name="My Favorite Pies">
+	<div class="define-chart-row" data-color="#ffb600" title="Pumpkin">13</div>
+	<div class="define-chart-row" data-color="#966510" title="Pecan">24</div>
+	<div class="define-chart-row" data-color="#cc0000" title="Cherry">17</div>
+	<div class="define-chart-row" data-color="#59e000" title="Apple">26</div>
+	<div class="define-chart-row" data-color="#990077" title="Rhubarb">12</div>
+	<div class="define-chart-row" data-color="#603000" title="Chocolate Cream">8</div>
+	
+	<div class="define-chart-footer">10</div>
+	<div class="define-chart-footer">20</div>
+	<div class="define-chart-footer">30</div>
+</div>
+
+<h1>Options</h1>
+<hr>
+<table class="table table-bordered">
+	<tr><th>Option</th><th>Description</th><th>Default</th></tr>
+	<tr><th>width</th><td>A number specifying the pixel width of the chart</td><td>750</td></tr>
+	<tr><th>name</th><td>The name of the chart, displayed at the top of the chart</td><td>null</td></tr>
+	<tr><th>type</th><td>The type of chart - currently only supports bar charts</td><td>"bar"</td></tr>
+	<tr><th>headers</th><td>A Javascript array of bar labels</td><td>null (no labels)</td></tr>
+	<tr><th>values</th><td>A Javascript array of numeric values for each corresponding bar</td><td>null</td></tr>
+	<tr><th>footers</th><td>A Javascript array of numeric values to display at the bottom of the chart</td><td>null</td></tr>
+	<tr><th>colors</th><td>A Javascript array of colors that will loop back if needed</td><td>#6b9bd6 (dark blue)</td></tr>
+	<tr><th>sort</th><td>Indicates if the bars should be sorted (not implemented)</td><td>false</td></tr>
+</table>
+<div class="google-ad" style="padding-bottom: 35px;">
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 728 x 90 - Leaderboard -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-5949490059468896"
+     data-ad-slot="5358947373"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48868453-1', 'requireonce.com');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
+		
