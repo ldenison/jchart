@@ -61,7 +61,8 @@
 		var x_label = 
 			$("<span>", {
 				class: "chart-x-label",
-				html: settings.x_label
+				html: settings.x_label,
+        width: settings.width
 			});
 		
 		//Calculate what the chart width should be
